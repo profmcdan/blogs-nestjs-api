@@ -58,6 +58,21 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Setup Prisma 
+
+```bash
+# initialize prisma
+npx prisma init
+
+# install prisma 
+npm i prisma
+```
+
+1. Set the DATABASE_URL in the .env file to point to your existing database. If your database has no tables yet, read https://pris.ly/d/getting-started
+2. Set the provider of the datasource block in schema.prisma to match your database: postgresql, mysql, sqlite, sqlserver, mongodb or cockroachdb.
+3. Run npx prisma db pull to turn your database schema into a Prisma schema.
+4. Run npx prisma generate to generate the Prisma Client. You can then start querying your database.
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
