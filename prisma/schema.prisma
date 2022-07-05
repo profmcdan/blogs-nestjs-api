@@ -19,11 +19,24 @@ model User {
     verified    Boolean     @default(false)
     created_at  DateTime    @default(now())
     updated_at  DateTime    @updatedAt
+    posts       Post[]
 }
 
 model Category {
     id          String      @id     @default(uuid())
     name        String      @unique
+    posts       Post[]
+    created_at  DateTime    @default(now())
+    updated_at  DateTime    @updatedAt
+}
+
+model Post {
+    id          String      @id     @default(uuid())
+    title       String    
+    body        String
+    userId      String
+    author      User        @relation(fields: [userId], references: [id])    
+    categories  Category[]   
     created_at  DateTime    @default(now())
     updated_at  DateTime    @updatedAt
 }
