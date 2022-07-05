@@ -77,6 +77,13 @@ npm i prisma
 3. Run npx prisma db pull to turn your database schema into a Prisma schema.
 4. Run npx prisma generate to generate the Prisma Client. You can then start querying your database.
 
+
+## Documentation
+
+```bash
+npx @compodoc/compodoc -p tsconfig.json -s
+```
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
