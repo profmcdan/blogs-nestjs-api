@@ -64,6 +64,10 @@ $ npm run test:cov
 # initialize prisma
 npx prisma init
 
+# run migrations
+npx prisma migrate dev --name categories
+
+
 # install prisma 
 npm i prisma
 ```

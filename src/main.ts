@@ -30,11 +30,12 @@ async function bootstrap() {
   };
 
   const document = SwaggerModule.createDocument(app, config, options);
-  SwaggerModule.setup('api/doc', app, document, customOptions);
+  SwaggerModule.setup('api/v1/doc', app, document, customOptions);
 
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
   const configService = app.get(ConfigService);
 
   await app.listen(configService.get('PORT'));
+  console.log(`Application is running on: ${await app.getUrl()}`);
 }
 bootstrap();

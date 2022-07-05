@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
 import { PrismaModule } from './prisma/prisma.module';
 import { UsersModule } from './users/users.module';
-import { ConfigModule } from "@nestjs/config";
+import { ConfigModule } from '@nestjs/config';
+import { CategoriesModule } from './categories/categories.module';
 import * as Joi from 'joi';
 
 @Module({
@@ -14,7 +15,8 @@ import * as Joi from 'joi';
       envFilePath: '../.env',
     }),
     PrismaModule,
-    UsersModule
+    UsersModule,
+    CategoriesModule,
   ],
 })
 export class AppModule {}
