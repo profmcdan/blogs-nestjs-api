@@ -34,8 +34,8 @@ model Post {
     id          String      @id     @default(uuid())
     title       String    
     body        String
-    userId      String
-    author      User        @relation(fields: [userId], references: [id])    
+    authorId    String
+    author      User        @relation(fields: [authorId], references: [id])
     categories  Category[]   
     created_at  DateTime    @default(now())
     updated_at  DateTime    @updatedAt

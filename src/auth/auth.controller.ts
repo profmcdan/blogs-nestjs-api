@@ -11,17 +11,18 @@ import { AuthService } from './auth.service';
 import { CreateUserDto } from '../users/dto/create-user.dto';
 import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { LoginUserDto } from './dto/login-user.dto';
-import { GetUser } from './decorators/get-user.decorator';
-import { User } from '@prisma/client';
 import { LocalAuthGuard } from './guards/local-auth.guard';
-import { JwtAuthGuard } from "./guards/jwt.guard";
-import { UsersService } from "../users/users.service";
+import { JwtAuthGuard } from './guards/jwt.guard';
+import { UsersService } from '../users/users.service';
 
 @ApiTags('auth')
 @ApiBearerAuth()
 @Controller('api/v1/auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService, private readonly userService: UsersService) {}
+  constructor(
+    private authService: AuthService,
+    private readonly userService: UsersService,
+  ) {}
 
   @Post('login')
   @UseGuards(LocalAuthGuard)
@@ -40,6 +41,6 @@ export class AuthController {
   @Get('profile')
   @UseGuards(JwtAuthGuard)
   profile(@Request() req) {
-    return this.userService.findOne(req.user.userId);
+    return this.userService.findOne(req.user.id);
   }
 }

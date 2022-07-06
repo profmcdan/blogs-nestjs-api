@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
-import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { PrismaService } from '../prisma/prisma.service';
+import { PostDto } from './dto/post.dto';
 
 @Injectable()
 export class PostsService {
   constructor(private readonly prismaService: PrismaService) {}
 
-  create(createPostDto: CreatePostDto) {
-    return this.prismaService.post.create({ data: createPostDto });
+  create(postDto: PostDto) {
+    return this.prismaService.post.create({ data: postDto });
   }
 
   findAll() {

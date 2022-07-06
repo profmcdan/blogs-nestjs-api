@@ -1,16 +1,4 @@
-import { IsNotEmpty, IsString, MinLength } from 'class-validator';
+import { OmitType, PartialType } from '@nestjs/swagger';
+import { PostDto } from './post.dto';
 
-export class CreatePostDto {
-  @IsNotEmpty()
-  @IsString()
-  @MinLength(3)
-  title: string;
-
-  @IsNotEmpty()
-  @IsString()
-  @MinLength(3)
-  body: string;
-
-  // categories: string
-  userId: string; // TODO: Remove after auth is added
-}
+export class CreatePostDto extends OmitType(PostDto, ['authorId']) {}
