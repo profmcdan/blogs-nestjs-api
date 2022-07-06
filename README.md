@@ -64,6 +64,8 @@ $ npm run test:cov
 # initialize prisma
 npx prisma init
 
+npx prisma generate
+
 # run migrations
 npx prisma migrate dev --name categories
 

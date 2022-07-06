@@ -16,6 +16,7 @@ async function bootstrap() {
     .setDescription('The Blogs API description')
     .setVersion('1.0')
     .addTag('blog')
+    .addBearerAuth()
     .build();
 
   const options: SwaggerDocumentOptions = {

@@ -13,6 +13,7 @@ import * as Joi from 'joi';
       isGlobal: true,
       validationSchema: Joi.object({
         PORT: Joi.string().required(),
+        JWT_SECRET: Joi.string().required(),
       }),
       envFilePath: '../.env',
     }),
